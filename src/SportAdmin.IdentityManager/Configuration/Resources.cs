@@ -3,6 +3,7 @@
 
 
 using IdentityModel;
+using IdentityServer4;
 using IdentityServer4.Models;
 using System.Collections.Generic;
 using static IdentityServer4.IdentityServerConstants;
@@ -45,7 +46,10 @@ namespace IdentityServerHost.Configuration
                 new ApiScope("transaction", "Transaction")
                 {
                     Description = "Some Transaction"
-                }
+                },
+
+                // Postman test
+                new ApiScope("postman_api", "Postman Test Resource")
             };
 
         // API resources are more formal representation of a resource with processing rules and their scopes (if any)
@@ -74,7 +78,8 @@ namespace IdentityServerHost.Configuration
                     },
 
                     Scopes = { "resource2.scope1", "shared.scope" }
-                }
+                },
+                new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
             };
     }
 }
