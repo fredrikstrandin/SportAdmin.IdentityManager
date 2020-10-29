@@ -35,7 +35,7 @@ namespace IdentityServerHost.Configuration
                     AllowOfflineAccess = true,
                     RequireConsent = false,
                     RequirePkce = false,
-                    RedirectUris = { "https://www.getpostman.com/oauth2/callback", "https://oauth.pstmn.io/v1/callback" },
+                    RedirectUris = { "https://www.getpostman.com/oauth2/callback"},
                     PostLogoutRedirectUris = { "https://www.getpostman.com"},
                     AllowedCorsOrigins = { "https://www.getpostman.com"},
                     EnableLocalLogin = true,
