@@ -22,7 +22,32 @@ namespace IdentityServerHost.Configuration
         public static IEnumerable<Client> Get()
         {
             return new List<Client>
-            {      
+            {
+                ///////////////////////////////////////////
+                // Postman
+                //////////////////////////////////////////
+                new Client
+                {
+                    ClientId = "postman-api",
+                    ClientName = "Postman Test Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowAccessTokensViaBrowser = true,
+                    AllowOfflineAccess = true,
+                    RequireConsent = false,
+                    RequirePkce = false,
+                    RedirectUris = { "https://www.getpostman.com/oauth2/callback", "https://oauth.pstmn.io/v1/callback" },
+                    PostLogoutRedirectUris = { "https://www.getpostman.com"},
+                    AllowedCorsOrigins = { "https://www.getpostman.com"},
+                    EnableLocalLogin = true,
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.LocalApi.ScopeName
+                    },
+                    ClientSecrets = new List<Secret>() { new Secret("thenameofthegame".Sha256())}
+                },       
                 ///////////////////////////////////////////
                 // JS OIDC Sample
                 //////////////////////////////////////////
