@@ -54,6 +54,8 @@ namespace IdentityServerHost
                     options.MutualTls.Enabled = true;
                     options.MutualTls.DomainName = "mtls";
                     //options.MutualTls.AlwaysEmitConfirmationClaim = true;
+
+                    options.Discovery.CustomEntries.Add("local_api", "~/localapi");
                 })
                 .AddInMemoryClients(Clients.Get())
                 .AddInMemoryIdentityResources(Resources.IdentityResources)
@@ -80,7 +82,7 @@ namespace IdentityServerHost
             // });
                 
 
-            services.AddExternalIdentityProviders();
+            services.AddExternalIdentityProviders();            
 
             services.AddAuthentication()
                 .AddCertificate(options =>
@@ -90,13 +92,13 @@ namespace IdentityServerHost
                 });
             
             services.AddCertificateForwardingForNginx();
-            
-            services.AddLocalApiAuthentication(principal =>
-            {
-                principal.Identities.First().AddClaim(new Claim("additional_claim", "additional_value"));
 
-                return Task.FromResult(principal);
-            });
+            services.AddLocalApiAuthentication(); // principal =>
+            //{
+            //    principal.Identities.First().AddClaim(new Claim("additional_claim", "additional_value"));
+
+            //    return Task.FromResult(principal);
+            //});
         }
 
         public void Configure(IApplicationBuilder app)

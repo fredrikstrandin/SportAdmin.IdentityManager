@@ -22,7 +22,7 @@ namespace IdentityServerHost.Configuration
         public static IEnumerable<Client> Get()
         {
             return new List<Client>
-            {
+            {      
                 ///////////////////////////////////////////
                 // JS OIDC Sample
                 //////////////////////////////////////////
