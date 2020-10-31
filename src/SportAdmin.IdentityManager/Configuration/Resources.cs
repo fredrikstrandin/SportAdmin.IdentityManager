@@ -81,8 +81,7 @@ namespace IdentityServerHost.Configuration
                     },
 
                     Scopes = { "resource2.scope1", "shared.scope" }
-                },
-                new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
+                }
             };
     }
 }

@@ -13,7 +13,6 @@ namespace IdentityServerHost.Configuration
         {
             var clients = new List<Client>();
 
-            clients.AddRange(ClientsConsole.Get());
             clients.AddRange(ClientsWeb.Get());
 
             return clients;
